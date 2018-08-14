@@ -1,0 +1,23 @@
+.NavBar {
+  font-family: 'Courgette', cursive;
+  border: 1px solid black;
+}
+
+ul {
+  margin: none;
+  padding: none;
+  border: 1px solid black;
+}
+
+li {
+  display: inline-block;
+  margin: none;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+li:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
