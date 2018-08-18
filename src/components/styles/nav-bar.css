@@ -1,23 +1,27 @@
 .NavBar {
-  font-family: 'Courgette', cursive;
-  border: 1px solid black;
+  margin: none;
+  padding: none;
+  background-color: rgb(255, 47, 0);
+  border-top: solid rgb(0, 255, 229);
+  border-bottom: solid rgb(0, 255, 229);
 }
 
 ul {
-  margin: none;
-  padding: none;
-  border: 1px solid black;
-}
-
-li {
   display: inline-block;
   margin: none;
-  padding: 5px;
-  border: 1px solid black;
+  padding: none;
+  text-decoration: none;
 }
 
-li:hover {
-  background-color: black;
-  color: white;
+.link:hover {
+  background-color:rgb(141, 152, 151);
+  color: rgb(72, 13, 0);
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+  margin: 0rem 1rem;
+  color: rgb(141, 152, 151);
+  text-shadow: 0px 2px 10px black;
 }
