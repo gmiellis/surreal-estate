@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles/add-property.css';
+import axios from 'axios';
 
 class AddProperty extends Component {
   constructor() {
@@ -7,11 +8,12 @@ class AddProperty extends Component {
     this.state = {
       fields: {
         title: '',
-        type: '',
+        type: 'Flat',
         bedrooms: '',
         bathrooms: '',
         price: '',
         city: 'Manchester',
+        email: '',
       },
     };
 
@@ -22,6 +24,22 @@ class AddProperty extends Component {
     event.preventDefault();
 
     console.log(this.state.fields);
+
+    axios.post('http://localhost:3000/api/v1/PropertyListing', {
+      title: this.state.fields.title,
+      type: this.state.fields.type,
+      bedrooms: this.state.fields.bedrooms,
+      bathrooms: this.state.fields.bathrooms,
+      price: this.state.fields.price,
+      city: this.state.fields.city,
+      email: this.state.fields.email,
+    })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   handleFieldChange = event => {
@@ -38,7 +56,7 @@ class AddProperty extends Component {
     return (
       <div className="AddProperty">
         <div className="proppage">
-        Add Property Page
+          <h3>Add Property Page</h3>
         </div>
         <form onSubmit={this.handleAddProperty}>
           Property Title -
@@ -98,6 +116,14 @@ class AddProperty extends Component {
               value={this.state.fields.price}
               onChange={this.handleFieldChange}
               type="number"
+            />
+          </div>
+          <div>
+            Email -
+            <input
+              name="email"
+              value={this.state.fields.email}
+              onChange={this.handleFieldChange}
             />
           </div>
           <button type="submit">

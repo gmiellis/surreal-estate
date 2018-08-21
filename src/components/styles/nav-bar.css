@@ -1,27 +1,19 @@
 .NavBar {
-  margin: none;
-  padding: none;
-  background-color: rgb(255, 47, 0);
-  border-top: solid rgb(0, 255, 229);
-  border-bottom: solid rgb(0, 255, 229);
+  background-color: rgb(64, 211, 143);
 }
 
 ul {
-  display: inline-block;
-  margin: none;
-  padding: none;
-  text-decoration: none;
-}
-
-.link:hover {
-  background-color:rgb(141, 152, 151);
-  color: rgb(72, 13, 0);
-  cursor: pointer;
+  padding: 0.5em;
 }
 
 .link {
+  margin: 1em;
   text-decoration: none;
-  margin: 0rem 1rem;
-  color: rgb(141, 152, 151);
-  text-shadow: 0px 2px 10px black;
+  color: inherit;
+}
+
+.link:hover {
+  background-color: black;
+  color: rgb(64, 211, 143);
+  border-radius: 0.5em;
 }

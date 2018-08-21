@@ -8,10 +8,10 @@ import AddProperty from './add-property';
 const App = () => (
   <div>
     <div className="header">
-      <h1 className="title">
-        <i className="fas fa-building"></i>
+      <h2 className="title">
+      <i className="fas fa-building"></i>
         &nbsp; Surreal Estates
-      </h1>
+      </h2>
     </div>
     <NavBar />
     <Switch>
