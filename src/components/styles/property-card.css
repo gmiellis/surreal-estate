@@ -1,0 +1,48 @@
+.prop-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  padding: 0.5em;
+  box-shadow: 0px 0px 5px rgb(64, 211, 143);
+}
+
+.prop-card-banner {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(64, 211, 143);
+  width: 100%;
+  height: 100%;
+  font-size: 3em;
+  height: 2em;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.1em;
+}
+
+.prop-card-title {
+  font-weight: bold;
+}
+
+.cont {
+  margin: 0.5em;
+  font-size: 0.8em;
+}
+
+.prop-card-email {
+  border-radius: 0.5em;
+  background-color: rgb(64, 211, 143);
+  padding: 0.3em;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+
+
