@@ -9,28 +9,28 @@ const PropertyCard = (props) => (
       </div>
       <div className="prop-cont">
       <div className="prop-card-title cont">
-        title{props.title}
+      {props.title}
       </div>
       <div className="prop-card-typecity cont">
-        {props.type}Flat, {props.city}Manchester
+        {props.type}, {props.city}
       </div>
       <div className="prop-card-bed cont">
-        <i class="fas fa-bed"></i>
-        {props.bedrooms}bedrooms
+        <i className="fas fa-bed"></i>
+        &ensp;{props.bedrooms}
       </div>
       <div className="prop-card-bath cont">
-        <i class="fas fa-bath"></i>
-        {props.bathrooms}bathrooms
+        <i className="fas fa-bath"></i>
+        &ensp;{props.bathrooms}
       </div>
       <div className="prop-card-price cont">
-        <i class="fas fa-pound-sign"></i>
-        {props.price}price
+        <i className="fas fa-pound-sign"></i>
+        &ensp;{props.price}
       </div>
       </div>
       <button className="prop-card-email">
-        <i class="far fa-envelope"></i>
-        {props.email}
-        <a href="mailto:someone@example.com?Subject=Hello%20again" target="_top">Email</a>
+        <a href={`mailto:${props.email}`}>
+        <i className="far fa-envelope"></i>
+        </a>
       </button>
     </div>
   </Fragment>

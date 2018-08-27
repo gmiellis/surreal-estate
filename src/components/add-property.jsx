@@ -8,7 +8,7 @@ class AddProperty extends Component {
     super();
     this.state = {
       fields: {
-        title: '',
+        title: 'Title',
         type: 'Flat',
         bedrooms: '0',
         bathrooms: '0',
@@ -36,14 +36,6 @@ class AddProperty extends Component {
 
     axios.post(
       'http://localhost:3000/api/v1/PropertyListing',
-      // title: this.state.fields.title,
-      // type: this.state.fields.type,
-      // bedrooms: this.state.fields.bedrooms,
-      // bathrooms: this.state.fields.bathrooms,
-      // price: this.state.fields.price,
-      // city: this.state.fields.city,
-      // email: this.state.fields.email,
-
       this.state.fields
     )
       .then(() => this.setState({
@@ -87,6 +79,7 @@ class AddProperty extends Component {
             value={this.state.fields.title}
             onChange={this.handleFieldChange}
             placeholder="Property Title"
+            autoComplete="Property For Sale"
           />
           Property Type -
           <select
@@ -94,7 +87,6 @@ class AddProperty extends Component {
             value={this.state.fields.type}
             onChange={this.handleFieldChange}
           >
-            {/* <option value="">--Please choose Property Type--</option> */}
             <option value="Flat">Flat</option>
             <option value="Semi-Detached">Semi-Detached</option>
             <option value="Terraced">Terraced</option>
