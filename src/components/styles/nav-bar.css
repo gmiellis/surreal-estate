@@ -1,26 +1,36 @@
 .NavBar {
   display: flex;
-  background-color: rgb(64, 211, 143);
-  justify-content: center;
-  margin-top: 1em;
+  /* background-color: rgb(64, 211, 143); */
   margin-left: 0;
   margin-right: 0;
   width: auto;
+  flex-wrap: wrap;
 }
 
 ul {
-  padding: 0.5em;
+  align-self: center;
 }
 
 .link {
   margin: 1em;
-  /* margin: auto; */
   text-decoration: none;
   color: inherit;
+  font-size: 0.9em;
 }
 
 .link:hover {
   background-color: black;
   color: rgb(64, 211, 143);
   border-radius: 0.5em;
+}
+
+.social {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  align-items: flex-end;
+  margin-left: 1em;
+  font-size: 2em;
+  width: auto;
+  flex-wrap: wrap;
 }

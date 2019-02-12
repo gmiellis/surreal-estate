@@ -13,11 +13,15 @@ class Properties extends Component {
       properties: [],
       alertMessage: '',
       isError: false,
+      search: '',
     };
+
+    this.handleSearch = this.handleSearch.bind(this);
   }
 
   componentDidMount() {
-    axios.get('http://localhost:3000/api/v1/PropertyListing')
+    axios
+      .get('http://localhost:3000/api/v1/PropertyListing')
       .then(response => this.setState({ properties: response.data }))
       .catch(() => {
         this.setState({
@@ -31,7 +35,8 @@ class Properties extends Component {
     const { search } = this.props.location;
 
     if (prevProps.location.search !== search) {
-      axios.get(`http://localhost:3000/api/v1/PropertyListing${search}`)
+      axios
+        .get(`http://localhost:3000/api/v1/PropertyListing${search}`)
         .then(({ data: properties }) => this.setState({ properties }))
         .catch(() => {
           this.setState({
@@ -46,74 +51,110 @@ class Properties extends Component {
     const { location: { search } } = this.props;
 
     const currentQueryParams = qs.parse(search, { ignoreQueryPrefix: true });
-    console.log(currentQueryParams);
 
     const newQueryParams = {
       ...currentQueryParams,
-      [operation]: JSON.stringify(valueObj),
+      [operation]: JSON.stringify({
+        ...JSON.parse(currentQueryParams[operation] || '{}'),
+        ...valueObj,
+      }),
     };
-    console.log(newQueryParams);
 
-    const result = qs.stringify(newQueryParams, { addQueryPrefix: true });
-    console.log(result);
+    return qs.stringify(newQueryParams, { addQueryPrefix: true, encode: false });
+  };
 
-    return result;
+
+  handleSearch = event => {
+    event.preventDefault();
+
+    const { search } = this.state;
+    const newQueryString = this.buildQueryString('query', { title: { $regex: search } });
+
+    const { history } = this.props;
+    history.push(newQueryString);
   };
 
   render() {
     return (
-      <div className="propsconstainer">
-        <div className="hbar">
+      <div className="main">
+
+        <div className="sidebar">
+
+          <form onSubmit={this.handleSearch}>
+            <input
+              placeholder="Property Title"
+              className="search searchinput"
+              type="text"
+              value={this.state.search}
+              onChange={event => this.setState({ search: event.target.value })}
+            />
+            <button className="search searchbutton" type="submit">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+
+          <div className="filter">
+            <strong>Filter By City</strong>
+          </div>
           <Link
             to={this.buildQueryString('query', { city: 'Manchester' })}
-            className="hbarlink"
-          >Manchester
+            className="filtercity"
+          >
+            Manchester
           </Link>
           <Link
             to={this.buildQueryString('query', { city: 'Leeds' })}
-            className="hbarlink"
-          >Leeds
+            className="filtercity"
+          >
+            Leeds
           </Link>
           <Link
             to={this.buildQueryString('query', { city: 'Sheffield' })}
-            className="hbarlink"
-          >Sheffield
+            className="filtercity"
+          >
+            Sheffield
           </Link>
           <Link
             to={this.buildQueryString('query', { city: 'Liverpool' })}
-            className="hbarlink"
-          >Liverpool
+            className="filtercity"
+          >
+            Liverpool
           </Link>
+          <strong className="sorttitle">Sort By</strong>
           <div className="sortBy">
-          Sort By >
+            <Link
+              to={this.buildQueryString('sort', { price: 1 })}
+              className="sortbylink"
+            >
+              Price Ascending
+            </Link>
+            <Link
+              to={this.buildQueryString('sort', { price: -1 })}
+              className="sortbylink"
+            >
+              Price Descending
+            </Link>
           </div>
-          <Link
-            to={this.buildQueryString('sort', { price: 1 })}
-            className="hbarlink"
-          >Price Ascending
-          </Link>
-          <Link
-            to={this.buildQueryString('sort', { price: -1 })}
-            className="hbarlink"
-          >Price Descending
-          </Link>
+
         </div>
-        <div className="properties">
-          {this.state.isError && <Alert message={this.state.alertMessage} />}
-          {this.state.properties.map(property => (
-            <div key={property._id} className="col">
-              <PropertyCard
-                key={property._id}
-                title={property.title}
-                type={property.type}
-                bedrooms={property.bedrooms}
-                bathrooms={property.bathrooms}
-                price={property.price}
-                city={property.city}
-                email={property.email}
-              />
-            </div>
-          ))}
+        <div className="propsconstainer">
+          <div className="properties">
+            {this.state.isError && <Alert message={this.state.alertMessage} />}
+            {this.state.properties.map(property => (
+              <div key={property._id} className="col">
+                <PropertyCard
+                  key={property._id}
+                  title={property.title}
+                  type={property.type}
+                  bedrooms={property.bedrooms}
+                  bathrooms={property.bathrooms}
+                  price={property.price}
+                  city={property.city}
+                  email={property.email}
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     );

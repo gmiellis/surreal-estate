@@ -6,7 +6,6 @@ body {
   height: 100%;
   justify-content: center;
   flex-direction: column;
-  /* align-content: space-around; */
   margin: 0.3em;
   overflow-x: hidden;
   flex-wrap: wrap;
@@ -15,13 +14,16 @@ body {
 
 .header {
   display: flex;
-  background-color: rgb(64, 211, 143);
+  background: rgb(62,211,143);
+  background: linear-gradient(90deg, rgba(62,211,143,1) 0%, rgba(111,231,175,0.8337534843038779) 44%, rgba(81,219,155,0.7833333162366509) 55%, rgba(62,211,143,1) 100%);
   color: rgb(0, 0, 0);
   height: 90%;
-  width: 100%;
+  width: auto;
 }
 
 .title {
   margin-left: 1em;
+  width: 25%;
 }
+
 

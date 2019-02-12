@@ -1,30 +1,86 @@
+.main {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  margin: 0em 0.1em;
+  padding: 1em;
+  color: black;
+  background-color: white;
+  width: 25%;
+}
+
+.search {
+  display: inline-flex;
+  margin-right:0.2em;
+  flex-wrap: wrap;
+  /* height: 1em; */
+}
+
+.searchinput {
+  width: 80%;
+}
+
+.searchbutton {
+  background-color: rgb(111, 231, 175);
+  color: white;
+  padding-top: 0.4em;
+  border-radius: 0.8em;
+  font-size: 0.6em;
+}
+
+.searchbutton:hover {
+  color: black;
+}
+
+.filter {
+  display: flex;
+  margin-top: 1em;
+}
+
+.filtercity {
+  display: block;
+  margin: 1em;
+  color: black;
+  font-size: 0.9em;
+}
+
+.filtercity:hover {
+  background-color: rgb(111, 231, 175);
+  border-radius: 1em;
+  margin-right: 1em;
+  padding: 0em 0.4em;
+}
+
+.sorttitle {
+  margin-top: 1em;
+}
+
+.sortBy {
+  display: block;
+}
+
+.sortbylink {
+  display: block;
+  margin: 1em;
+  color: black;
+  font-size: 0.9em;
+}
+
+.sortbylink:hover {
+  background-color: rgb(111, 231, 175);
+  border-radius: 1em;
+  margin-right: 1em;
+  padding: 0em 0.4em;
+}
+
 .propscontainer {
   display: flex;
   height: 100%;
-}
-
-.hbar {
-  margin: 0.2em;
-  border-radius: 0.5em;
-  display: flex;
-  justify-content: space-around;
-  background-color: white;
-  background-color: rgb(111, 231, 175);
-  box-shadow: 0px 0px 5px rgb(138, 235, 189);
-  box-shadow: inset 0 0 5px  rgb(52, 170, 115);
-}
-
-.hbarlink {
-  margin: 0.2em;
-  padding: 0.2em;
-  color: black;
-  border-radius: 1em;
-  font-size: 0.8em;
-}
-
-.hbarlink:hover {
-  background-color: white;
-  box-shadow: inset 0 0 5px  rgb(52, 170, 115);
 }
 
 .properties {
@@ -44,7 +100,5 @@
   flex-grow: 2;
 }
 
-.sortBy {
-  align-self: center;
-  font-size: 1em;
-}
+
+
